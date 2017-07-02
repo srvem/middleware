@@ -2,11 +2,6 @@
   "name": "@srvem/middleware",
   "version": "0.1.0",
   "description": "Middleware blueprint for srvem (pronounced \"serve 'em\"), a super-fast and minimalist TypeScript middleware-oriented server framework for Node.js.",
-  "keywords": [
-    "srvem",
-    "middleware",
-    "blueprint"
-  ],
   "main": "build/main.js",
   "typings": "build/main.d.ts",
   "scripts": {
@@ -19,6 +14,11 @@
     "type": "git",
     "url": "git+https://github.com/srvem/middleware.git"
   },
+  "keywords": [
+    "srvem",
+    "middleware",
+    "blueprint"
+  ],
   "author": "Kaleab S. Melkie <kaleabmelkie@gmail.com>",
   "license": "MIT",
   "bugs": {
