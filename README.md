@@ -1,17 +1,18 @@
 # @srvem/middleware
-Middleware blueprint for srvem (pronounced \"serve 'em\"), a super-fast and minimalist TypeScript middleware-oriented server framework for Node.js.
-
-# Installation
+Middleware blueprint for srvem (pronounced \"serve 'em\", a super-fast and minimalist middleware-oriented TypeScript server framework for Node.js).
+  
+## Installation
 > `npm install --save @srvem/middleware`
-
-# Usage
+  
+## Usage
+_srv-sample-middleware.ts_:
 ```typescript
 import { SrvMiddleware } from '@srvem/middleware'
 
-export class SrvSample extends SrvMiddleware {
+export class SampleMiddlware extends SrvMiddleware {
 
-  // `this.request` and `this.response` are available in this class
-  // they come from the parameters of the function argument of the `createServer` function in the 'http' module
+  // `this.request: SrvRequest` is available
+  // `this.response: SrvResponse` is available
 
   // you can use the constructor to accept parameters
   constructor(private sampleParam: String) {
@@ -20,27 +21,51 @@ export class SrvSample extends SrvMiddleware {
 
   // override
   main(): void {
-    // middleware code starts here
+    // middleware code starts handling requests here
   }
   
 }
 
 ```
-
-# Public API
+  
+_main.ts_:
 ```typescript
+import { Srvem } from '@srvem/app'
+import { SrvSampleMiddleware} from './srv-sample-middleware'
+
+const app: Srvem = new Srvem()
+
+app.use(new SrvSampleMiddleware('sample string param'))
+// more srvem middlewares can go here using app.use()
+// handlers can also be defined here using app.handle()
+
+app.start().listen()
+
+```
+  
+## Public API
+```typescript
+interface SrvRequest extends IncomingMessage {} // the super class is from the built-in 'http' module
+
+interface SrvResponse extends ServerResponse {} // the super class is from the built-in 'http' module
+
 abstract class SrvMiddleware {
-  request: IncomingMessage // from the built-in 'http' module
-  response: ServerResponse // from the built-in 'http' module
+  request: SrvRequest
+  response: SrvResponse
 
   abstract main(): void
 }
 
 ```
-
-# Credits
+  
+## See Also
+- [@srvem/app](https://github.com/srvem/app) a super-fast and minimalist TypeScript middleware-oriented server for Node.js.
+- [@srvem/static](https://github.com/srvem/static) to serve static files from a specified directory.
+- [@srvem/router](https://github.com/srvem/router) to develop routers and server APIs with asynchronous request handlers.
+  
+## Credits
 Kaleab S. Melkie (<kaleabmelkie@gmail.com>)
-
-# License
-MIT License
-Copyright (c) 2017 srvem
+  
+## License
+MIT License  
+Copyright (C) 2017 srvem

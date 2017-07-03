@@ -1,8 +1,9 @@
-import { IncomingMessage, ServerResponse } from 'http'
+import { SrvRequest } from './SrvRequest'
+import { SrvResponse } from './SrvResponse'
 
 export abstract class SrvMiddleware {
-  request: IncomingMessage
-  response: ServerResponse
+  request: SrvRequest
+  response: SrvResponse
 
   abstract main(): void
 }
