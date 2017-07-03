@@ -68,4 +68,4 @@ Kaleab S. Melkie (<kaleabmelkie@gmail.com>)
   
 ## License
 MIT License  
-Copyright (C) 2017 srvem
+Copyright &copy; 2017 srvem
