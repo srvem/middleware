@@ -9,7 +9,7 @@ _srv-sample-middleware.ts_:
 ```typescript
 import { SrvMiddleware } from '@srvem/middleware'
 
-export class SampleMiddlware extends SrvMiddleware {
+export class SampleMiddleware extends SrvMiddleware {
 
   // `this.request: SrvRequest` is available
   // `this.response: SrvResponse` is available
@@ -69,3 +69,5 @@ Kaleab S. Melkie (<kaleabmelkie@gmail.com>)
 ## License
 MIT License  
 Copyright &copy; 2017 srvem
+  
+Made with &#10084; in Addis Ababa.
